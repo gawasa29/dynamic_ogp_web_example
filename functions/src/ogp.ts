@@ -44,6 +44,9 @@ export const createOgp = functions.https.onRequest(async (req, res) => {
     }
 });
 
+// cloud function のトリガーはblueをGETリクエストした時ですが、
+// この関数は新しいHTMLを出力するのでおなじpathにすると無限ループしてしまう。
+// なのでpathの最後に_をつけてつけて無限ループを防いでいる。
 const createHtml = (path: string, title: string, description: string, image: string) => {
     return `<!DOCTYPE html>
 <html>
