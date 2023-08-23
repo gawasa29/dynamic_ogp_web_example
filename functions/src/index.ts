@@ -1,0 +1,1 @@
+export { createOgp } from './ogp';
